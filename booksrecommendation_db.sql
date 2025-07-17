@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 11, 2025 at 12:39 AM
+-- Generation Time: Jul 18, 2025 at 02:57 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.2
 
@@ -110,17 +110,12 @@ CREATE TABLE `tblrecommendation` (
 --
 
 INSERT INTO `tblrecommendation` (`id`, `user_id`, `genre_id`, `book_id`, `created_at`) VALUES
-(33, 1, 1, NULL, '2025-07-10 01:24:15'),
-(34, 1, 3, NULL, '2025-07-10 01:24:15'),
-(35, 1, 4, NULL, '2025-07-10 01:24:15'),
-(36, 1, 5, NULL, '2025-07-10 01:24:15'),
-(37, 1, 6, NULL, '2025-07-10 01:24:15'),
-(38, 1, 7, NULL, '2025-07-10 01:24:15'),
-(39, 1, 8, NULL, '2025-07-10 01:24:15'),
-(40, 2, 1, NULL, '2025-07-10 14:21:47'),
-(41, 2, 4, NULL, '2025-07-10 14:21:47'),
-(42, 2, 7, NULL, '2025-07-10 14:21:47'),
-(43, 2, 10, NULL, '2025-07-10 14:21:47');
+(44, 4, 1, NULL, '2025-07-18 00:21:00'),
+(45, 4, 2, NULL, '2025-07-18 00:21:00'),
+(46, 4, 3, NULL, '2025-07-18 00:21:00'),
+(47, 4, 4, NULL, '2025-07-18 00:21:00'),
+(48, 4, 5, NULL, '2025-07-18 00:21:00'),
+(49, 4, 6, NULL, '2025-07-18 00:21:00');
 
 -- --------------------------------------------------------
 
@@ -143,8 +138,30 @@ CREATE TABLE `tblreviews` (
 --
 
 INSERT INTO `tblreviews` (`id`, `user_id`, `book_id`, `rating`, `comment`, `created_at`, `updated_at`) VALUES
-(2, 1, 1, 5, 'excellent book', '2025-07-09 23:51:48', NULL),
-(3, 2, 2, 5, 'Excellent book I love it', '2025-07-10 14:21:09', NULL);
+(5, 4, 3, 5, 'Excellent Book', '2025-07-18 00:20:08', NULL),
+(6, 4, 1, 5, 'Highly recommended to change lives', '2025-07-18 00:20:39', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tblreview_feedback`
+--
+
+CREATE TABLE `tblreview_feedback` (
+  `id` int(11) NOT NULL,
+  `review_id` int(11) NOT NULL,
+  `action` enum('like','abuse') NOT NULL,
+  `ip_address` varchar(45) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tblreview_feedback`
+--
+
+INSERT INTO `tblreview_feedback` (`id`, `review_id`, `action`, `ip_address`, `created_at`) VALUES
+(6, 5, 'like', '::1', '2025-07-18 00:20:10'),
+(7, 6, 'like', '::1', '2025-07-18 00:20:40');
 
 -- --------------------------------------------------------
 
@@ -167,8 +184,8 @@ CREATE TABLE `tblusers` (
 --
 
 INSERT INTO `tblusers` (`id`, `name`, `email`, `password`, `profile_pic`, `bio`, `created_at`) VALUES
-(1, 'Diya Shezadi ', 'diya@gmail.com', 'diya', '1752092986_portrait-female-working-from-home.jpg', 'I am a Professional Web Developer.', '2025-07-09 20:29:46'),
-(2, 'User', 'user@gmail.com', 'user123', '1752157182_business-owner-working-their-strategy.jpg', 'I am a graphic designer having 5 year of professional experience in logo designing.', '2025-07-10 14:19:42');
+(4, 'Sadia', 'sadia@gmail.com', 'diya', '1752799470_1752092039_business-owner-working-their-strategy.jpg', 'web developer', '2025-07-18 00:17:22'),
+(5, 'User', 'user@gmail.com', '$2y$10$z3LvygHSoHdWy5c/GjjaNO0Gye7fYgDSaEfHsxGEKb7gjr.rFQLrC', '1752799535_1752091364_portrait-female-working-from-home.jpg', 'freelancer', '2025-07-18 00:45:35');
 
 -- --------------------------------------------------------
 
@@ -188,10 +205,9 @@ CREATE TABLE `tblwishlist` (
 --
 
 INSERT INTO `tblwishlist` (`id`, `user_id`, `book_id`, `created_at`) VALUES
-(3, 1, 2, '2025-07-10 01:19:55'),
-(4, 2, 1, '2025-07-10 14:19:59'),
-(5, 2, 2, '2025-07-10 14:20:41'),
-(6, 2, 3, '2025-07-10 16:46:43');
+(9, 4, 3, '2025-07-18 00:19:46'),
+(10, 4, 2, '2025-07-18 00:19:49'),
+(11, 4, 1, '2025-07-18 00:19:53');
 
 --
 -- Indexes for dumped tables
@@ -227,6 +243,13 @@ ALTER TABLE `tblrecommendation`
 --
 ALTER TABLE `tblreviews`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tblreview_feedback`
+--
+ALTER TABLE `tblreview_feedback`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `tblreview_feedback_ibfk_1` (`review_id`);
 
 --
 -- Indexes for table `tblusers`
@@ -267,25 +290,41 @@ ALTER TABLE `tblnotification`
 -- AUTO_INCREMENT for table `tblrecommendation`
 --
 ALTER TABLE `tblrecommendation`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
 -- AUTO_INCREMENT for table `tblreviews`
 --
 ALTER TABLE `tblreviews`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `tblreview_feedback`
+--
+ALTER TABLE `tblreview_feedback`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `tblusers`
 --
 ALTER TABLE `tblusers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tblwishlist`
 --
 ALTER TABLE `tblwishlist`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `tblreview_feedback`
+--
+ALTER TABLE `tblreview_feedback`
+  ADD CONSTRAINT `tblreview_feedback_ibfk_1` FOREIGN KEY (`review_id`) REFERENCES `tblreviews` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
