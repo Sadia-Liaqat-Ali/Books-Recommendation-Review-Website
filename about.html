@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - BookVoyage | Online Book Review & Recommendation System</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Colorful Navbar with Hover Effects -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-book-open me-2"></i>Book Review and Recommendation System
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php"><i class="fas fa-home me-1"></i> Home</a>
+                    </li>
+                  
+                    <li class="nav-item">
+                        <a class="nav-link active" href="about.html"><i class="fas fa-info-circle me-1"></i> About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html"><i class="fas fa-envelope me-1"></i> Contact</a>
+                    </li>
+                     <li class="nav-item">
+                        <a class="btn btn-outline-light ms-lg-2" href="admin-login.php"><i class="fas fa-user-plus me-1"></i>Admin Login</a>
+                    </li>
+                    <li class="nav-item ms-lg-3">
+                        <a class="btn btn-light" href="user-login.php"><i class="fas fa-sign-in-alt me-1"></i>User Login</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+<br>
+    <!-- About Hero Section -->
+    <section class="about-hero-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h1 class="display-4 fw-bold mb-4">About Us</h1>
+                    <p class="lead">Discover the story behind our platform and our mission to connect readers with their next favorite book.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+      <!-- Mission Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 order-lg-2 mb-4 mb-lg-0">
+                    <img src="https://images.unsplash.com/photo-1506880018603-83d5b814b5a6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80" alt="Reading" class="img-fluid rounded shadow-lg">
+                </div>
+                <div class="col-lg-6 order-lg-1">
+                    <h2 class="fw-bold mb-4">Our Mission</h2>
+                    <p>At BookVoyage, our mission is simple: to help readers discover books they'll love and connect with a community that shares their passion for reading.</p>
+                    <p>We believe that:</p>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> Every reader deserves personalized recommendations</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> Honest reviews from fellow readers are invaluable</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> Technology should enhance, not replace, the human element of book discovery</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-primary me-2"></i> Reading is a journey best shared with others</li>
+                    </ul>
+                    <p>We're committed to continuously improving our platform to serve these goals and make your reading experience more enjoyable and rewarding.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+  
+
+    <!-- About Sadia Section Styled Like CTA -->
+<section class="py-5 bg-primary text-white">
+    <div class="container text-center">
+        <h2 class="display-5 fw-bold mb-4">Meet the Developer: Sadia</h2>
+        <p class="lead mb-3">
+            A passionate Computer Science graduate from Virtual University of Pakistan, dedicated to crafting impactful and user-friendly digital solutions.
+        </p>
+        <p class="mb-4">
+            With hands-on experience in HTML, CSS, JavaScript, PHP, MySQL, and Python, I thrive on turning innovative ideas into working software applications.
+        </p>
+        <button class="btn btn-light btn-lg px-4" onclick="toggleEmail()">
+            <i class="fas fa-envelope me-2"></i> Contact Me
+        </button>
+        <p id="emailDisplay" class="mt-3 badge bg-danger fw-bold" style="display: none;">📧 sadialiaqat23@gmail.com</p>
+    </div>
+</section>
+
+<!-- JavaScript to toggle email display -->
+<script>
+    function toggleEmail() {
+        var email = document.getElementById('emailDisplay');
+        if (email.style.display === 'none') {
+            email.style.display = 'block';
+        } else {
+            email.style.display = 'none';
+        }
+    }
+</script>
+
+
+    </div></section></body></html>
